@@ -1,10 +1,78 @@
 from boardCleaner import *
 import copy
+from time import time
+
+n = 4
+goal = [['o' for i in range(n)] for j in range(n)]
+initial = [['x' for i in range(n)] for j in range(n)]
+
+
+bc = BoardCleaner(tuplify(initial), tuplify(goal), n)
+
+print("Solución del Problema mediante búsqueda primero en altura graph")
+t1 = time()
+meta3 = depth_first_graph_search(bc)
+t2 = time()
+print("took: " + str(t2-t1))
+
+if meta3:
+    despliega_solucion(meta3)
+else:
+    print("Falla: no se encontró una solución")
+
+goal = [['o' for i in range(n)] for j in range(n)]
+initial = copy.deepcopy(goal)
+
+initial[0][1] = 'x'
+initial[1][0] = 'x'
+initial[1][2] = 'x'
+initial[2][1] = 'x'
+
+bc = BoardCleaner(tuplify(initial), tuplify(goal), n)
+
+
+print("Solución del Problema 1 mediante búsqueda primero en altura graph")
+t1 = time()
+meta3 = depth_first_graph_search(bc)
+t2 = time()
+print("took: " + str(t2-t1))
+
+if meta3:
+    despliega_solucion(meta3)
+else:
+    print("Falla: no se encontró una solución")
+
+ 
+
+goal = [['o' for i in range(n)] for j in range(n)]
+initial = copy.deepcopy(goal)
+
+initial[0][1] = 'x'
+initial[0][2] = 'x'
+initial[1][0] = 'x'
+initial[1][3] = 'x'
+initial[2][0] = 'x'
+initial[2][3] = 'x'
+initial[3][1] = 'x'
+initial[3][2] = 'x'
+
+bc = BoardCleaner(tuplify(initial), tuplify(goal), n)
+
+
+print("Solución del Problema 1 mediante búsqueda primero en altura graph")
+t1 = time()
+meta3 = depth_first_graph_search(bc)
+t2 = time()
+print("took: " + str(t2-t1))
+
+if meta3:
+    despliega_solucion(meta3)
+else:
+    print("Falla: no se encontró una solución")
 
 n = 5
 goal = [['o' for i in range(n)] for j in range(n)]
 initial = copy.deepcopy(goal)
-
 '''initial[0][1] = 'x'
 initial[1][0] = 'x'
 initial[1][2] = 'x'
@@ -28,7 +96,11 @@ initial[4][0] = 'x'
 bc = BoardCleaner(tuplify(initial), tuplify(goal), n)
 
 print("Solución del Problema 1 a*")
+t1 = time()
 meta6 = astar_search(bc)
+t2 = time()
+print("took: " + str(t2-t1))
+
 if meta6:
     despliega_solucion(meta6)
 else:
@@ -36,43 +108,68 @@ else:
 
 
 print("Solución del Problema 1 mediante búsqueda primero en anchura arbol")
+t1 = time()
 meta1 = breadth_first_tree_search(bc)
+t2 = time()
+print("took: " + str(t2-t1))
+
 if meta1:
     despliega_solucion(meta1)
 else:
     print("Falla: no se encontró una solución")
 
 print("Solución del Problema 1 mediante búsqueda primero en anchura")
+t1 = time()
 meta4 = breadth_first_search(bc)
+t2 = time()
+print("took: " + str(t2-t1))
+
 if meta4:
     despliega_solucion(meta4)
 else:
     print("Falla: no se encontró una solución")
 
 print("Solución del Problema 1 mediante uniform cost searh")
+t1 = time()
 meta3 = uniform_cost_search(bc)
+t2 = time()
+print("took: " + str(t2-t1))
+
 if meta3:
     despliega_solucion(meta3)
 else:
     print("Falla: no se encontró una solución")
 
 print("Solución del Problema 1 mediante uniform cost searh")
+t1 = time()
 meta3 = uniform_cost_search(bc)
+t2 = time()
+print("took: " + str(t2-t1))
+
 if meta3:
     despliega_solucion(meta3)
 else:
     print("Falla: no se encontró una solución")
 
 print("Solución del Problema 1 depth_limited_search")
+t1 = time()
 meta5 = depth_limited_search(bc, 20)
+t2 = time()
+print("took: " + str(t2-t1))
+
 if meta5:
     despliega_solucion(meta5)
 else:
     print("Falla: no se encontró una solución")
 
 '''
+
 print("Solución del Problema 1 mediante búsqueda primero en altura graph")
+t1 = time()
 meta3 = depth_first_graph_search(bc)
+t2 = time()
+print("took: " + str(t2-t1))
+
 if meta3:
     despliega_solucion(meta3)
 else:
@@ -140,7 +237,11 @@ initial[10][10] = 'x'
 bc = BoardCleaner(tuplify(initial), tuplify(goal), n)
 
 print("Solución del Problema 1 a*")
+t1 = time()
 meta6 = astar_search(bc)
+t2 = time()
+print("took: " + str(t2-t1))
+
 if meta6:
     despliega_solucion(meta6)
 else:
@@ -201,7 +302,11 @@ initial[10][10] = 'x'
 bc = BoardCleaner(tuplify(initial), tuplify(goal), n)
 
 print("Solución del Problema 1 a*")
+t1 = time()
 meta6 = astar_search(bc)
+t2 = time()
+print("took: " + str(t2-t1))
+
 if meta6:
     despliega_solucion(meta6)
 else:
